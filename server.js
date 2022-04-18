@@ -1,6 +1,9 @@
 const express = require("express");
 const dotenv = require("dotenv");
 const app = express();
+
+const connectDB = require("./server/database/connection");
+
 //calling the route from router.js
 const route = require("./server/routes/router");
 
@@ -8,6 +11,10 @@ const route = require("./server/routes/router");
 dotenv.config({ path: "config.env" });
 const port = process.env.PORT || 3000;
 
+//mongoDB connection
+connectDB();
+
+//loading routers
 app.use("/", route);
 
 //listening the request
