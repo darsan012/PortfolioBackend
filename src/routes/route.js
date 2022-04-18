@@ -16,10 +16,14 @@ const courses = [
 ];
 //getting data
 router.get("/", (req, res) => {
+  res.send("Success...");
+});
+
+router.get("/api/courses", (req, res) => {
   res.send(courses);
 });
 
-router.get("/:id", (req, res) => {
+router.get("/api/courses/:id", (req, res) => {
   const course = courses.find((c) => c.id === parseInt(req.params.id));
   if (!course)
     return res.status(404).send("the course with given id is not there");
