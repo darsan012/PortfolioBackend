@@ -1,15 +1,16 @@
-const express = require("express");
-const dotenv = require("dotenv");
+import express from "express";
+import dotenv from "dotenv";
+dotenv.config({ path: "config.env" });
+
 const app = express();
 app.use(express.json());
 
-const connectDB = require("./server/database/connection");
+import connectDB from "./server/database/connection.js";
 
 //calling the route from router.js
-const route = require("./server/routes/router");
+import route from "./server/routes/router.js";
 
 //setting up port
-dotenv.config({ path: "config.env" });
 const port = process.env.PORT || 3000;
 
 //mongoDB connection

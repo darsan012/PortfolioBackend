@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const courseSchema = new mongoose.Schema({
   name: {
@@ -12,4 +12,4 @@ const courseSchema = new mongoose.Schema({
 //here Userdb is class and has pascal naming convention
 const Userdb = mongoose.model("userdb", courseSchema);
 
-module.exports = Userdb;
+export default Userdb;

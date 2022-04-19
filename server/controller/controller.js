@@ -1,8 +1,8 @@
-const express = require("express");
-const Userdb = require("../model/model");
+import express from "express";
+import Userdb from "../model/model.js";
 
 //create and save new users
-exports.create = (req, res) => {
+export const create = (req, res) => {
   //validate request
 
   if (!req.body) {
@@ -32,7 +32,7 @@ exports.create = (req, res) => {
 };
 
 //retrieve and return all users or retrive and return single users
-exports.find = (req, res) => {
+export const find = (req, res) => {
   Userdb.find()
     .then((user) => {
       res.send(user);
@@ -45,7 +45,7 @@ exports.find = (req, res) => {
 };
 
 //update the new user identified user by user id
-exports.update = (req, res) => {
+export const update = (req, res) => {
   //validate request
   if (!req.body) {
     res.status(400).send({ message: "To update content can not be empty" });
@@ -69,7 +69,7 @@ exports.update = (req, res) => {
 };
 
 //delete a user with specific user id
-exports.delete = (req, res) => {
+export const deleteUser = (req, res) => {
   const id = req.params.id;
   Userdb.findByIdAndDelete(id)
     .then((data) => {
