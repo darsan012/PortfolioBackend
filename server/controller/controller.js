@@ -2,7 +2,7 @@ import express from "express";
 import Userdb from "../model/model.js";
 
 //create and save new users
-export const create = (req, res) => {
+export const create = async (req, res) => {
   //validate request
 
   if (!req.body) {
