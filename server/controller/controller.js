@@ -56,7 +56,7 @@ exports.update = (req, res) => {
   Userdb.findByIdAndUpdate(id, req.body)
     .then((data) => {
       if (!data) {
-        res.status(400).send({
+        res.status(404).send({
           message: `cannot update user with id: ${id}. Maybe user not found!`,
         });
       } else {
@@ -69,4 +69,23 @@ exports.update = (req, res) => {
 };
 
 //delete a user with specific user id
-exports.delete = (req, res) => {};
+exports.delete = (req, res) => {
+  const id = req.params.id;
+  Userdb.findByIdAndDelete(id)
+    .then((data) => {
+      if (!data) {
+        res.status(404).send({
+          message: `cannot delete user with id: ${id}. Maybe user not found!`,
+        });
+      } else {
+        res.send({
+          message: "user was deleted sucessfully",
+        });
+      }
+    })
+    .catch((err) => {
+      res
+        .status(500)
+        .send({ message: "could not delete user with id = " + id });
+    });
+};
