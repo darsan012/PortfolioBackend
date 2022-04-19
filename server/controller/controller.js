@@ -45,7 +45,28 @@ exports.find = (req, res) => {
 };
 
 //update the new user identified user by user id
-exports.update = (req, res) => {};
+exports.update = (req, res) => {
+  //validate request
+  if (!req.body) {
+    res.status(400).send({ message: "To update content can not be empty" });
+    return;
+  }
+
+  const id = req.params.id;
+  Userdb.findByIdAndUpdate(id, req.body)
+    .then((data) => {
+      if (!data) {
+        res.status(400).send({
+          message: `cannot update user with id: ${id}. Maybe user not found!`,
+        });
+      } else {
+        res.send(data);
+      }
+    })
+    .catch((err) => {
+      res.status(500).send({ message: "Error update user information" });
+    });
+};
 
 //delete a user with specific user id
 exports.delete = (req, res) => {};
