@@ -1,14 +1,15 @@
-const string = require("joi/lib/types/string");
 const mongoose = require("mongoose");
 
-const schema = new mongoose.Schema({
-  name: String,
-  author: string,
-  date: { type: Date, default: Date.now },
-  isPublished: Boolean,
+const courseSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: true,
+  },
+  author: String,
+  publishedYear: Number,
 });
 
 //here Userdb is class and has pascal naming convention
-const Userdb = mongoose.model("userdb", schema);
+const Userdb = mongoose.model("userdb", courseSchema);
 
 module.exports = Userdb;
