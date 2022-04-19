@@ -6,10 +6,6 @@ route.get("/", (req, res) => {
   res.send("connection succeded..");
 });
 
-route.get("/api/courses", (req, res) => {
-  res.send("courses are not defined yet..");
-});
-
 //api
 route.post("/api/courses", controller.create);
 route.get("/api/courses", controller.find);

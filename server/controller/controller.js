@@ -32,7 +32,17 @@ exports.create = (req, res) => {
 };
 
 //retrieve and return all users or retrive and return single users
-exports.find = (req, res) => {};
+exports.find = (req, res) => {
+  Userdb.find()
+    .then((user) => {
+      res.send(user);
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message: err.message || "error occured while retrieving information",
+      });
+    });
+};
 
 //update the new user identified user by user id
 exports.update = (req, res) => {};
