@@ -5,8 +5,13 @@ const courseSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  author: String,
-  publishedYear: Number,
+  address: {
+    type: String,
+  },
+  age: {
+    type: Number,
+  },
+  sex: String,
 });
 
 //here Userdb is class and has pascal naming convention

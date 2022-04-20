@@ -1,5 +1,5 @@
 import express from "express";
-import Userdb from "../model/model.js";
+import Userdb from "../model/Profilemodel.js";
 
 //create and save new users
 export const create = async (req, res) => {
@@ -13,8 +13,8 @@ export const create = async (req, res) => {
   //new user
   const user = new Userdb({
     name: req.body.name,
-    author: req.body.author,
-    publishedYear: req.body.publishedYear,
+    address: req.body.address,
+    age: req.body.age,
   });
 
   //save user
@@ -80,6 +80,7 @@ export const deleteUser = (req, res) => {
       } else {
         res.send({
           message: "user was deleted sucessfully",
+          data,
         });
       }
     })

@@ -17,7 +17,7 @@ const port = process.env.PORT || 3000;
 connectDB();
 
 //loading routers
-app.use("/", route);
+app.use("/api/user", route);
 
 //listening the request
 app.listen(port, () => console.log(`listening on port ${port}...`));

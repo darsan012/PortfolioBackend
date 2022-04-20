@@ -4,18 +4,20 @@
 
 import express from "express";
 import { Router } from "express";
-import { create, find, update, deleteUser } from "../controller/controller.js";
+import {
+  create,
+  find,
+  update,
+  deleteUser,
+} from "../controller/Profilecontroller.js";
 
 const route = Router();
-route.get("/", (req, res) => {
-  res.send("connection succeded..");
-});
 
 //api
-route.post("/api/courses", create);
-route.get("/api/courses", find);
-route.put("/api/courses/:id", update);
-route.delete("/api/courses/:id", deleteUser);
+route.post("/", create);
+route.get("/", find);
+route.put("/:id", update);
+route.delete("/:id", deleteUser);
 
 // module.exports = route;
 export default route;
