@@ -9,6 +9,10 @@ const courseSchema = new mongoose.Schema({
     type: String,
     required: true,
     unique: true,
+    match: [
+      /^[a-zA-Z0-9.! #$%&'*+/=? ^_`{|}~-]+@[a-zA-Z0-9-]+(?:\. [a-zA-Z0-9-]+)*$/,
+      "Invalid email format",
+    ],
   },
   password: {
     type: String,
