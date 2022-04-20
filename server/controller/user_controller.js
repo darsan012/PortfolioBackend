@@ -1,5 +1,4 @@
-import express from "express";
-import Userdb from "../model/Profilemodel.js";
+import Userdb from "../model/user_model.js";
 
 //create and save new users
 export const create = async (req, res) => {
@@ -13,8 +12,10 @@ export const create = async (req, res) => {
   //new user
   const user = new Userdb({
     name: req.body.name,
-    address: req.body.address,
+    email: req.body.email,
+    password: req.body.password,
     age: req.body.age,
+    sex: req.body.sex,
   });
 
   //save user

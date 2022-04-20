@@ -1,15 +1,10 @@
-// const express = require("express");
-// const route = express.Router();
-// const controller = require("../controller/controller");
-
-import express from "express";
 import { Router } from "express";
 import {
   create,
   find,
   update,
   deleteUser,
-} from "../controller/Profilecontroller.js";
+} from "../controller/user_controller.js";
 
 const route = Router();
 

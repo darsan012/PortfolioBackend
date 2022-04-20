@@ -5,12 +5,16 @@ const courseSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  address: {
+  email: {
     type: String,
+    required: true,
+    unique: true,
   },
-  age: {
-    type: Number,
+  password: {
+    type: String,
+    required: true,
   },
+  age: Number,
   sex: String,
 });
 
