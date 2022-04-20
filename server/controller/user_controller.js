@@ -1,4 +1,5 @@
 import Userdb from "../model/user_model.js";
+import bcrypt from "bcrypt";
 
 //create and save new users
 export const create = async (req, res) => {
@@ -9,11 +10,15 @@ export const create = async (req, res) => {
     return;
   }
 
+  //salt is used so the hashed pass is different for different users
+  const salt = await bcrypt.genSalt();
+  const hashedPasswd = await bcrypt.hash(req.body.password, salt);
+
   //new user
   const user = new Userdb({
     name: req.body.name,
     email: req.body.email,
-    password: req.body.password,
+    password: hashedPasswd,
     age: req.body.age,
     sex: req.body.sex,
   });
@@ -22,7 +27,7 @@ export const create = async (req, res) => {
   user
     .save()
     .then((data) => {
-      res.send(data);
+      res.json({ data: data });
     })
     .catch((err) => {
       res.status(500).send({
@@ -75,7 +80,7 @@ export const deleteUser = (req, res) => {
   Userdb.findByIdAndDelete(id)
     .then((data) => {
       if (!data) {
-        res.status(404).send({
+        res.status(404).json({
           message: `cannot delete user with id: ${id}. Maybe user not found!`,
         });
       } else {
