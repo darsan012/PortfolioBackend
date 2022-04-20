@@ -4,7 +4,6 @@ const courseSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
-    match: [/ a-zA-Z/, "Name can not have numbers and special characters"],
   },
   email: {
     type: String,

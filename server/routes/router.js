@@ -1,18 +1,22 @@
 import { Router } from "express";
+import { login } from "../controller/loginController.js";
 import {
   create,
   find,
   update,
   deleteUser,
-} from "../controller/user_controller.js";
+} from "../controller/usersController.js";
 
 const route = Router();
 
-//api
-route.post("/", create);
-route.get("/", find);
-route.put("/:id", update);
-route.delete("/:id", deleteUser);
+//user
+route.post("/user", create);
+route.get("/user", find);
+route.put("/user/:id", update);
+route.delete("/user/:id", deleteUser);
+
+//login
+route.post("/login", login);
 
 // module.exports = route;
 export default route;
