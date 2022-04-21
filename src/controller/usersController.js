@@ -3,10 +3,6 @@ import bcrypt from "bcrypt";
 
 //create and save new users
 const create = async (req, res) => {
-  // try{
-
-  // }
-
   try {
     if (!req.body) {
       res.status(400).send({ message: "content can not be empty" });
