@@ -31,7 +31,6 @@ const create = async (req, res) => {
     await user.save();
 
     //for sending response to the client using token
-
     const token = user.generateAuthToken();
     res.header("x-auth-token", token).json({
       name: user.name,

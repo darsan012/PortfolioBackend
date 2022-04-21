@@ -14,11 +14,11 @@ const route = Router();
 //user
 route.post("/user", create);
 route.get("/user", find);
-route.put("/user/:id", update);
+route.put("/user/:id", loginMiddleWare, update);
 route.delete("/user/:id", deleteUser);
 
 //login
-route.post("/login", loginMiddleWare, login);
+route.post("/login", login);
 
 // module.exports = route;
 export default route;
