@@ -1,4 +1,8 @@
 import mongoose from "mongoose";
+import jwt from "jsonwebtoken";
+import dotenv from "dotenv/config";
+
+const jwtSecretKey = process.env.jwtSecretKey;
 
 const courseSchema = new mongoose.Schema({
   name: {
@@ -21,6 +25,12 @@ const courseSchema = new mongoose.Schema({
   age: Number,
   sex: String,
 });
+
+//for authentication token
+courseSchema.methods.generateAuthToken = function () {
+  const token = jwt.sign({ _id: this._id }, jwtSecretKey);
+  return token;
+};
 
 //here Userdb is class and has pascal naming convention
 const Userdb = mongoose.model("userdb", courseSchema);

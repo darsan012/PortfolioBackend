@@ -1,4 +1,4 @@
-import Userdb from "../model/userModel.js";
+import Userdb from "../models/userModel.js";
 import bcrypt from "bcrypt";
 
 //create and save new users
@@ -27,9 +27,13 @@ const create = async (req, res) => {
     });
 
     //save user
-    // yo data ma chai response aauxa
+
     await user.save();
-    res.json({
+
+    //for sending response to the client using token
+
+    const token = user.generateAuthToken();
+    res.header("x-auth-token", token).json({
       name: user.name,
       email: user.email,
       age: user.age,
