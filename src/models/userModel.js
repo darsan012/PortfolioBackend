@@ -24,13 +24,12 @@ const courseSchema = new mongoose.Schema({
   },
   age: Number,
   sex: String,
-  isAdmin: Boolean,
 });
 
 //for authentication token
 courseSchema.methods.generateAuthToken = function () {
   const token = jwt.sign(
-    { _id: this._id, is_Admin: this.isAdmin }, //payload
+    { _id: this._id }, //payload
     jwtSecretKey
   );
   return token;
