@@ -10,6 +10,7 @@ import {
 
 import { loginMiddleWare } from "../middleware/loginMiddleWare.js";
 import { mailMiddleWare } from "../middleware/nodeMailerMiddleWare.js";
+import getUser from "../controller/cardController.js";
 
 const route = Router();
 
@@ -25,5 +26,7 @@ route.post("/login", login);
 //contact form
 route.post("/contact", mailMiddleWare, postContact);
 
+//git connection and data extraction
+route.get("/git", getUser);
 // module.exports = route;
 export default route;

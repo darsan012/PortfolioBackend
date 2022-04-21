@@ -1,7 +1,7 @@
 import axios from "axios";
 // import Carddb from "../models/cardModel.js";
 
-async function getUser() {
+async function getUser(req, res) {
   try {
     const response = await axios.get(
       "https://api.github.com/users/darsan012/repos"
@@ -15,11 +15,11 @@ async function getUser() {
       projectBody: data.description,
       projectLink: data.html_url,
     }));
-    console.log(projectData);
+    // console.log(projectData);
     // await cardData.save();
-    // res.status(200).send("sucessful entry inside the database");
+    res.status(200).send(projectData);
   } catch (error) {
     console.error(error.message);
   }
 }
-getUser();
+export default getUser;
