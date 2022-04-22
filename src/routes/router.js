@@ -27,6 +27,6 @@ route.post("/login", login);
 route.post("/contact", mailMiddleWare, postContact);
 
 //git connection and data extraction
-route.get("/git", getUser);
+route.get("/card", getUser);
 // module.exports = route;
 export default route;

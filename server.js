@@ -3,12 +3,20 @@ import dotenv from "dotenv";
 dotenv.config({ path: ".env" });
 
 import connectDB from "./src/database/connection.js";
+import cors from "cors";
 
 //calling the route from router.js
 import route from "./src/routes/router.js";
 
 const app = express();
 app.use(express.json());
+
+const corsOptions = {
+  origin: "*",
+  optionsSuccessStatus: 200,
+};
+
+app.use(cors(corsOptions));
 
 //setting up port
 const port = process.env.PORT || 3000;
