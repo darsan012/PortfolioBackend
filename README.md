@@ -17,6 +17,11 @@ This repo is the backend for my personal portfolio. Used Node js, express and mo
     "nodemon"
   }
 ```
+## Getting started
+```
+ on terminal run-> npm install 
+ 
+```
 ## Available Scripts
 In the project directory, you can run:
 ### `node server.js`
