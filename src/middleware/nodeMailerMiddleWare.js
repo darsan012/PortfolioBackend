@@ -2,8 +2,8 @@ import nodemailer from "nodemailer";
 
 export function mailMiddleWare(req, res, next) {
   var transporter = nodemailer.createTransport({
-    host: "smtp.mailtrap.io",
-    port: 2525,
+    host: process.env.mailingHost,
+    port: process.env.mailingPort,
     auth: {
       user: "process.env.mailingUsename",
       pass: process.env.mailingPassword,

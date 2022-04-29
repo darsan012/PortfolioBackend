@@ -1,0 +1,8 @@
+MONGO_URI
+PORT
+jwtSecretKey
+adminSecretKey
+mailingUsername
+mailingPassword
+mailingHost
+mailingPort

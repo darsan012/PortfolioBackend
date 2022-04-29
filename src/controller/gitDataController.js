@@ -4,7 +4,7 @@ import axios from "axios";
 async function getUser(req, res) {
   try {
     const response = await axios.get(
-      "https://api.github.com/users/darsan012/repos"
+      "https://api.github.com/users/darsan012/repos?per_page=6"
     );
     const userData = response.data;
 
