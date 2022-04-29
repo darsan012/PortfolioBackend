@@ -3,7 +3,7 @@ This repo is the backend for my personal portfolio. Used Node js, express and mo
 
 ## Packages Used
 ```
-"dependencies"
+dependencies:
  "axios",
  "bcrypt"
  "cors"
