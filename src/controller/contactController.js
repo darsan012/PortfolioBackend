@@ -1,4 +1,5 @@
 import Contactdb from "../models/contactModel.js";
+import { mailSender } from "../helper/mailHandler.js";
 
 export const postContact = async (req, res) => {
   try {
@@ -10,6 +11,7 @@ export const postContact = async (req, res) => {
       email: req.body.email,
       message: req.body.message,
     });
+    mailSender(contact, res);
     await contact.save();
     res.status(200).send({ message: "message was sucessfully send" });
   } catch (err) {

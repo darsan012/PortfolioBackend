@@ -5,15 +5,19 @@ export function mailMiddleWare(req, res, next) {
     host: "smtp.mailtrap.io",
     port: 2525,
     auth: {
-      user: "d40f253140823c",
+      user: "process.env.mailingUsename",
       pass: process.env.mailingPassword,
     },
   });
   var mailOptions = {
-    from: "d40f253140823c",
+    from: "noreply@gmail.com",
     to: req.body.email,
-    subject: "Sending Email using node.js",
-    text: `Your response has been received and it was ..|.. \'${req.body.message}\'`,
+    subject: "Thanks for your Order",
+    html: `<h2 >Hello ${req.body.name}!</h2>
+          <br>Your information is recorded.Your order is placed.
+          <br>
+          <h4>Sincerely,</h4>
+          <h3>Dumpling Store</h3>`,
   };
 
   transporter.sendMail(mailOptions, function (error, info) {

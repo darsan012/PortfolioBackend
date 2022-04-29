@@ -11,6 +11,7 @@ import route from "./src/routes/router.js";
 const app = express();
 app.use(express.json());
 
+//cors are used for connecting to the react app
 const corsOptions = {
   origin: "http://localhost:3000",
   optionsSuccessStatus: 200,
