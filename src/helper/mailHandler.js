@@ -2,10 +2,10 @@ import nodemailer from "nodemailer";
 
 export function mailSender(req, res) {
   var transporter = nodemailer.createTransport({
-    host: "smtp.mailtrap.io",
-    port: 2525,
+    host: process.env.mailingHost,
+    port: process.env.mailingPort,
     auth: {
-      user: "d40f253140823c",
+      user: process.env.mailingUsername,
       pass: process.env.mailingPassword,
     },
   });
@@ -14,13 +14,14 @@ export function mailSender(req, res) {
     to: "dsrsangautam@gmail.com",
     subject: "Contact me message",
     html: `
+         <p> Sender name: ${req.name}</p>
           <p> Message: ${req.message} </p>
-          <p> Sender name: ${req.name}</p>`,
+          `,
   };
 
   transporter.sendMail(mailOptions, function (error, info) {
     if (error) {
-      return { error: error };
+      return { error: error.message[0] };
     } else {
       return "Email was sent successfully: " + info.response;
     }

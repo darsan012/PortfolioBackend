@@ -9,7 +9,7 @@ import {
 } from "../controller/usersController.js";
 
 import { loginMiddleWare } from "../middleware/loginMiddleWare.js";
-import getUser from "../controller/cardController.js";
+import getUser from "../controller/gitDataController.js";
 
 const route = Router();
 
