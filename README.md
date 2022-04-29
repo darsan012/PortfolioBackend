@@ -11,11 +11,7 @@ This repo is the backend for my personal portfolio. Used Node js, express and mo
  "jsonwebtoken"
  "mongoose"
  "nodemailer"
- 
- "devDependencies"
-    "dotenv"
-    "nodemon"
-  }
+
 ```
 ## Getting started
 ```
