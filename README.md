@@ -20,7 +20,7 @@ dependencies:
 ```
 ## Available Scripts
 In the project directory, you can run:
-### `node server.js`
+### `npm start`
 Runs the app in the development mode.\
 Open [http://localhost:5003]to view it in the browser or use this url as a baseurl for testing in postman.
 The server will not reload if you make edits.\
