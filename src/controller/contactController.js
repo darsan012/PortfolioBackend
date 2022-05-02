@@ -1,5 +1,6 @@
 import Contactdb from "../models/contactModel.js";
-import { mailSender } from "../helper/mailHandler.js";
+// import { mailSender } from "../helper/mailHandler.js"
+import {mailer,mailerAdmin} from '../helper/mailHandler.js'
 
 export const postContact = async (req, res) => {
   try {
@@ -11,9 +12,16 @@ export const postContact = async (req, res) => {
       email: req.body.email,
       message: req.body.message,
     });
-    mailSender(contact, res);
+    // mailSender(contact, res)
     await contact.save();
-    res.status(200).send({ message: "message was sucessfully send" });
+    let { name, email, message } = req.body;
+    await mailer(email,name);
+    await mailerAdmin({name,email,message})
+    res.send({
+      contact,
+      message:"contact created successfully",
+      statusCode:200,
+    })
   } catch (err) {
     res.status(500).send({ message: err.message });
   }

@@ -2,7 +2,7 @@ MONGO_URI
 PORT
 jwtSecretKey
 adminSecretKey
-mailingUsername
-mailingPassword
-mailingHost
-mailingPort
+ADMIN_EMAIL
+EMAIL_SERVICE_PROVIDER
+MAILER_EMAIL
+MAILER_PASSWORD
