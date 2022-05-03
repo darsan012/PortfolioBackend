@@ -13,7 +13,7 @@ app.use(express.json());
 
 //cors are used for connecting to the react app
 const corsOptions = {
-  origin: "http://localhost:3000/",
+  origin: "https://portfoliodarshan.herokuapp.com",
   optionsSuccessStatus: 200,
 };
 
