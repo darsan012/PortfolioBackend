@@ -13,14 +13,14 @@ app.use(express.json());
 
 //cors are used for connecting to the react app
 const corsOptions = {
-  origin: "http://localhost:3000",
+  origin: "https://darshan.surge.sh/",
   optionsSuccessStatus: 200,
 };
 
 app.use(cors(corsOptions));
 
 //setting up port
-const port = process.env.PORT || 5003;
+const port = process.env.PORT;
 
 //mongoDB connection
 connectDB();
