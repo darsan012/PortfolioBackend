@@ -11,7 +11,7 @@ import route from "./src/routes/router.js";
 const app = express();
 app.use(express.json());
 
-//cors are used for connecting to the react app
+//cors are used for connecting to the react ap
 const corsOptions = {
   origin: ["https://darshangautam.netlify.app", "http://localhost:3000"],
   optionsSuccessStatus: 200,
