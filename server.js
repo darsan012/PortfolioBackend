@@ -13,7 +13,12 @@ app.use(express.json());
 
 //cors are used for connecting to the react ap
 const corsOptions = {
-  origin: ["https://darshangautam.netlify.app", "http://localhost:3000"],
+  origin: [
+    "https://darshangautam.netlify.app",
+    "http://localhost:3000",
+    "http://darshangautam.com.np",
+    "http://www.darshangautam.com.np/",
+  ],
   optionsSuccessStatus: 200,
 };
 
