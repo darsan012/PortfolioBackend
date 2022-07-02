@@ -1,16 +1,23 @@
 import nodemailer from "nodemailer";
 import "dotenv/config";
+
 let transporter = nodemailer.createTransport({
-  service:process.env.EMAIL_SERVICE_PROVIDER,
-   auth: {
-     user: process.env.MAILER_EMAIL,
-     pass: process.env.MAILER_PASSWORD,
-   },
- });
+  pool: true,
+  service: process.env.EMAIL_SERVICE_PROVIDER,
+  auth: {
+    type: "OAuth2",
+    user: process.env.MAIL_USERNAME,
+    pass: process.env.MAIL_PASSWORD,
+    clientId: process.env.OAUTH_CLIENTID,
+    clientSecret: process.env.OAUTH_CLIENT_SECRET,
+    refreshToken: process.env.OAUTH_REFRESH_TOKEN,
+  },
+});
+
 export async function mailer(mailTo, name) {
   try {
     await transporter.sendMail({
-      from: process.env.MAILER_EMAIL,
+      from: process.env.ADMIN_EMAIL,
       to: mailTo,
       subject: "Message Received",
       text: `I am happy to see your email at ${new Date().toDateString()}.
@@ -28,10 +35,10 @@ export async function mailer(mailTo, name) {
     return false;
   }
 }
-export async function mailerAdmin({name,email,message}) {
+export async function mailerAdmin({ name, email, message }) {
   try {
     await transporter.sendMail({
-      from: process.env.MAILER_EMAIL,
+      from: email,
       to: process.env.ADMIN_EMAIL,
       subject: "New Message Received",
       text: `Received message at ${new Date().toDateString()}.
