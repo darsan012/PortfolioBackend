@@ -17,8 +17,8 @@ const corsOptions = {
     "https://darshangautam.netlify.app",
     "http://localhost:3000",
     "http://darshangautam.com.np",
-    "http://www.darshangautam.com.np/",
-    "https://www.darshangautam.com.np/",
+    "http://www.darshangautam.com.np",
+    "https://www.darshangautam.com.np",
   ],
   optionsSuccessStatus: 200,
 };
